@@ -58,10 +58,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ClockDriverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APPPInCSharp_ObserverPattern.Console\APPPInCSharp_ObserverPattern.Console.csproj">
+      <Project>{34E27D6B-F303-4E14-A0C2-14B2153133D9}</Project>
+      <Name>APPPInCSharp_ObserverPattern.Console</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
