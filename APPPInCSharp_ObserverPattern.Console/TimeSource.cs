@@ -1,7 +1,22 @@
-﻿namespace APPPInCSharp_ObserverPattern
+﻿using System.Collections.Generic;
+
+namespace APPPInCSharp_ObserverPattern
 {
-    public interface TimeSource
+    public abstract class TimeSource
     {
-        void RegisterObserver(ClockObserver driver);
+        private List<ClockObserver> itsObservers = new List<ClockObserver>();
+
+        protected void Notify(int hours, int minutes, int seconds)
+        {
+            foreach (var observer in itsObservers)
+            {
+                observer.Update(hours, minutes, seconds);
+            }
+        }
+
+        public void RegisterObserver(ClockObserver observer)
+        {
+            itsObservers.Add(observer);
+        }
     }
 }
