@@ -43,13 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClockDriver.cs" />
     <Compile Include="ClockObserver.cs" />
     <Compile Include="MockTimeSink.cs" />
     <Compile Include="MockTimeSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeSink.cs" />
     <Compile Include="TimeSource.cs" />
   </ItemGroup>
   <ItemGroup>

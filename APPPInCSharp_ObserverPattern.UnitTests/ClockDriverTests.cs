@@ -5,22 +5,43 @@ namespace APPPInCSharp_ObserverPattern.UnitTests
     [TestFixture]
     public class ClockDriverTests
     {
-        [Test]
-        public void TestClockDriver()
-        {
-            MockTimeSource source = new MockTimeSource();
-            MockTimeSink sink = new MockTimeSink();
-            ClockDriver driver = new ClockDriver(source, sink);
-            source.SetTime(3, 4, 5);
+        private MockTimeSource source;
+        private MockTimeSink sink;
 
-            Assert.AreEqual(3, sink.GetHours());
-            Assert.AreEqual(4, sink.GetMinutes());
-            Assert.AreEqual(5, sink.GetSeconds());
+        [SetUp]
+        public void SetUp()
+        {
+            source = new MockTimeSource();
+            sink = new MockTimeSink();
+            source.RegisterObserver(sink);
+        }
+
+        [Test]
+        public void TestTimeChange()
+        {
+            source.SetTime(3, 4, 5);
+            AssertSinkEquals(sink, 3, 4, 5);
 
             source.SetTime(7, 8, 9);
-            Assert.AreEqual(7, sink.GetHours());
-            Assert.AreEqual(8, sink.GetMinutes());
-            Assert.AreEqual(9, sink.GetSeconds());
+            AssertSinkEquals(sink, 7, 8, 9);
+        }
+
+        [Test]
+        public void TestMultipleSinks()
+        {
+            MockTimeSink sink2 = new MockTimeSink();
+            source.RegisterObserver(sink2);
+
+            source.SetTime(12, 13, 14);
+            AssertSinkEquals(sink, 12, 13, 14);
+            AssertSinkEquals(sink2, 12, 13, 14);
+        }
+
+        private void AssertSinkEquals(MockTimeSink sink, int hours, int minutes, int secs)
+        {
+            Assert.AreEqual(hours, sink.GetHours());
+            Assert.AreEqual(minutes, sink.GetMinutes());
+            Assert.AreEqual(secs, sink.GetSeconds());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace APPPInCSharp_ObserverPattern
 {
-    public class MockTimeSink : TimeSink
+    public class MockTimeSink : ClockObserver
     {
         private int itsHours;
         private int itsMinutes;
@@ -12,11 +12,11 @@
 
         public int GetSeconds() => itsSeconds;
 
-        public void SetTime(int hours, int minutes, int seconds)
+        public void Update(int hours, int minutes, int secs)
         {
             itsHours = hours;
             itsMinutes = minutes;
-            itsSeconds = seconds;
+            itsSeconds = secs;
         }
     }
 }
