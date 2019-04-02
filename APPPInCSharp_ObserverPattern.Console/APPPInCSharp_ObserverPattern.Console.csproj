@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClockDriver.cs" />
+    <Compile Include="ClockObserver.cs" />
     <Compile Include="MockTimeSink.cs" />
     <Compile Include="MockTimeSource.cs" />
     <Compile Include="Program.cs" />

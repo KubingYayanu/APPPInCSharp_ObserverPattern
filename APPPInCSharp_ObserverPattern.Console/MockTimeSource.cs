@@ -2,16 +2,16 @@
 {
     public class MockTimeSource : TimeSource
     {
-        private ClockDriver itsDriver;
+        private ClockObserver itsObserver;
 
         public void SetTime(int hours, int minutes, int seconds)
         {
-            itsDriver.Update(hours, minutes, seconds);
+            itsObserver.Update(hours, minutes, seconds);
         }
 
-        public void SetDriver(ClockDriver driver)
+        public void SetObserver(ClockObserver observer)
         {
-            itsDriver = driver;
+            itsObserver = observer;
         }
     }
 }

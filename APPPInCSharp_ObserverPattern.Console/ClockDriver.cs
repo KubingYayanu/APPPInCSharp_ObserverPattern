@@ -1,10 +1,10 @@
 ﻿namespace APPPInCSharp_ObserverPattern
 {
-    public class ClockDriver
+    public class ClockDriver : ClockObserver
     {
         public ClockDriver(TimeSource source, TimeSink sink)
         {
-            source.SetDriver(this);
+            source.SetObserver(this);
             this.sink = sink;
         }
 

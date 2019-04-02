@@ -2,6 +2,6 @@
 {
     public interface TimeSource
     {
-        void SetDriver(ClockDriver driver);
+        void SetObserver(ClockObserver driver);
     }
 }
