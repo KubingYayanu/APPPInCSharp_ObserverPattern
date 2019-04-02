@@ -12,7 +12,7 @@ namespace APPPInCSharp_ObserverPattern.UnitTests
         public void SetUp()
         {
             source = new MockTimeSource();
-            sink = new MockTimeSink();
+            sink = new MockTimeSink(source);
             source.RegisterObserver(sink);
         }
 
@@ -29,7 +29,7 @@ namespace APPPInCSharp_ObserverPattern.UnitTests
         [Test]
         public void TestMultipleSinks()
         {
-            MockTimeSink sink2 = new MockTimeSink();
+            MockTimeSink sink2 = new MockTimeSink(source);
             source.RegisterObserver(sink2);
 
             source.SetTime(12, 13, 14);

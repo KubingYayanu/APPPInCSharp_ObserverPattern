@@ -1,17 +1,23 @@
 ﻿namespace APPPInCSharp_ObserverPattern
 {
-    public class MockTimeSource : TimeSource
+    public class MockTimeSource : Subject, TimeSource
     {
-        private TimeSourceImplementation timeSourceImpl = new TimeSourceImplementation();
+        private int itsHours;
+        private int itsMinutes;
+        private int itsSeconds;
 
-        public void RegisterObserver(ClockObserver observer)
-        {
-            timeSourceImpl.RegisterObserver(observer);
-        }
+        public int GetHours() => itsHours;
+
+        public int GetMinutes() => itsMinutes;
+
+        public int GetSeconds() => itsSeconds;
 
         public void SetTime(int hours, int minutes, int secs)
         {
-            timeSourceImpl.Notify(hours, minutes, secs);
+            itsHours = hours;
+            itsMinutes = minutes;
+            itsSeconds = secs;
+            NotifyObservers();
         }
     }
 }

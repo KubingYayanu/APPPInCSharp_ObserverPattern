@@ -2,6 +2,10 @@
 {
     public interface TimeSource
     {
-        void RegisterObserver(ClockObserver observer);
+        int GetHours();
+
+        int GetMinutes();
+
+        int GetSeconds();
     }
 }
