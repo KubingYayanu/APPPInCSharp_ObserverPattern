@@ -1,0 +1,6 @@
+.vs/
+APPPInCSharp_ObserverPattern.Console/bin/
+APPPInCSharp_ObserverPattern.Console/obj/
+APPPInCSharp_ObserverPattern.UnitTests/bin/
+APPPInCSharp_ObserverPattern.UnitTests/obj/
+packages/
