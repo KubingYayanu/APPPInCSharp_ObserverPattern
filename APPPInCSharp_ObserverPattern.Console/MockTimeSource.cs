@@ -2,9 +2,16 @@
 {
     public class MockTimeSource : TimeSource
     {
+        private TimeSourceImplementation timeSourceImpl = new TimeSourceImplementation();
+
+        public void RegisterObserver(ClockObserver observer)
+        {
+            timeSourceImpl.RegisterObserver(observer);
+        }
+
         public void SetTime(int hours, int minutes, int secs)
         {
-            Notify(hours, minutes, secs);
+            timeSourceImpl.Notify(hours, minutes, secs);
         }
     }
 }
